@@ -20,6 +20,8 @@ export async function saveSubscription(subscriptionId: string, customerId: strin
     price_id: subscription.items.data[0].price.id
   };
 
+  console.log('criou novo ou nao >>>>>>>>', createAction);
+
   // Salvando no FaunDB
   if (createAction) {
     await fauna.query(q.Create(q.Collection('subscriptions'), { data: subscriptionData }));
