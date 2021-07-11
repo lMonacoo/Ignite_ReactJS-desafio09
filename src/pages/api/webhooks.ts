@@ -49,10 +49,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           case 'customer.subscription.deleted':
             const subscription = event.data.object as Stripe.Subscription;
 
-            await saveSubscription(
-              subscription.id,
-              subscription.customer.toString(),
-            );
+            await saveSubscription(subscription.id, subscription.customer.toString(), false);
+
+            console.log('created');
 
             break;
 
