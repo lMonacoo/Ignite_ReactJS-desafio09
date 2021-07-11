@@ -21,6 +21,8 @@ export const config = {
   }
 };
 
+console.log('entrou no webhooks');
+
 const relevantEvents = new Set([
   'checkout.session.completed',
   'customer.subscription.updated',
